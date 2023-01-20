@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+body {
+    padding-top: 200px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.heart {
+    width: 200px;
+    height: 200px;
+    background: red;
+    rotate: 45deg;
+    position: relative;
+    animation: heart 1s infinite;
+}
+
+.heart:before, .heart:after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: -100px;
+}
+
+.heart:after {
+    top: -100px;
+}
+
+
+@keyframes heart {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Adicionar div em cima do coração */
+.typing-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.typing{
+    display: inline-block;
+    overflow: hidden;
+    color: #fff;
+    border-right: 3px solid #fff;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3s steps(40, end), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Versão mobile */
+
+@media screen and (max-width: 600px) {
+    .heart {
+        width: 100px;
+        height: 100px;
+    }
+    .heart:before, .heart:after {
+        width: 100px;
+        height: 100px;
+    }
+    .heart:before {
+        left: -50px;
+    }
+    .heart:after {
+        top: -50px;
+    }
+
+    .typing-text {
+        top: 40%;
+    }
+
+    .typing {
+        font-size: 20px;
+    }
+}
